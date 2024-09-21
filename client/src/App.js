@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Home from './components/Home';
+import Workouts from './components/Workouts';
+import Settings from './components/Settings';
+import './App.css';
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  const fetchMessage = () => {
-    // Ensure you are fetching from the correct endpoint
-    fetch('http://localhost:3000/')
-      .then(response => response.text())
-      .then(message => setMessage(message))
-      .catch(err => console.error('Error fetching message:', err));
-  };
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Message from server: {message}</p>
-        <button onClick={fetchMessage}>Netanel Cohen Message</button>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Sidebar />
+        <div className="main-content">
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/workouts" element={<Workouts />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 

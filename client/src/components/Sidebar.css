@@ -1,0 +1,26 @@
+.sidebar-container {
+  height: 100vh;
+  width: 250px;
+  background-color: #145a32; /* Dark green */
+  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar-link {
+  display: block;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.sidebar-link:hover {
+  background-color: #1d8348; /* Lighter dark green */
+}
+
+.sidebar-active {
+  background-color: #1d8348;
+}
